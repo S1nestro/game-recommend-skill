@@ -1,5 +1,6 @@
 from mycroft import MycroftSkill, intent_handler
-from adapt.intent import IntentBuilder
+from mycroft.skills.intent_file_handler import intent_file_handler
+
 
 class GameRecommend(MycroftSkill):
     def __init__(self):
