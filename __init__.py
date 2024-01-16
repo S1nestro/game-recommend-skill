@@ -1,6 +1,7 @@
 from mycroft import MycroftSkill, intent_handler
 from adapt.intent import IntentBuilder
 from random import choice
+from mycroft.skills.core import intent_file_handler
 
 
 class GameRecommend(MycroftSkill):
@@ -24,7 +25,13 @@ class GameRecommend(MycroftSkill):
         self.speak("I can recommend a random game from a predefined list.")
 
     # Padatious
+    @intent_file_handler('how_to_use.intent')
+    def handle_how_to_use_padatious(self, message):
+        self.speak("You can use this skill by asking me to recommend a game.")
 
+    @intent_file_handler('what_can_do.intent')
+    def handle_what_can_do_padatious(self, message):
+        self.speak("I can recommend a random game from a predefined list.")
         
 
 def create_skill():
