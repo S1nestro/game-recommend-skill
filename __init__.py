@@ -4,12 +4,14 @@ from adapt.intent import IntentBuilder
 class GameRecommend(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.games_list = ["The Witcher 3", "Stardew Valley", "Celeste", "Hollow Knight", "Minecraft"]
         
     # Adapt
     
     @intent_handler('recommend.game.intent')
     def handle_recommend_game(self, message):
-        self.speak_dialog('recommend.game')
+        recommended_game = choice(self.games_list)
+        self.speak_dialog('recommend.game', {'game': recommended_game})
 
     @intent_handler(IntentBuilder('HowToUseIntent').require('HowToUseKeyword').require('SkillKeyword'))
     def handle_how_to_use(self, message):
